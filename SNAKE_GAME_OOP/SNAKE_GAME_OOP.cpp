@@ -26,11 +26,8 @@ private:
 	int y;
 public:
 	Point() : x(10), y(10) {}
-	Point(int x, int y)
-	{
-		this->x = x;
-		this->y = y;
-	}
+
+	Point(int x, int y) : x(x), y(y) {}
 
 	void SetPoint(int x, int y)
 	{
@@ -53,7 +50,7 @@ public:
 	{
 		y++;
 		if (y > MAX_Y)  //snake will crossing and appearing from the other side
-			y = MAX_Y;
+			y = 0;
 	}
 
 	void MoveLeft()
@@ -96,8 +93,8 @@ public:
 
 	bool IsEqual(Point* p)
 	{
-		if (p->x == x && p->y == y) return 1;
-		else return 0;
+		if (p->x == x && p->y == y) return true;
+		else return false;
 	}
 };
 
@@ -269,7 +266,7 @@ public:
 			cell[i]->Draw();
 		}
 		fruit.Draw_fruit();
-		Sleep(50);
+		Sleep(20);
 	}
 
 
